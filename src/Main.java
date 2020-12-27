@@ -32,10 +32,13 @@ class Main {
         for (int i = 0; i < arrayOfMembers.length(); i++) {
             JSONObject info = arrayOfMembers.getJSONObject(i);
             try {
-                String educationForm = info.getString("education_form");
-                forms.put(educationForm, forms.containsKey(educationForm) ? forms.get(educationForm) + 1 : 1);
                 String universityName = info.getString("university_name");
                 universities.put(universityName, universities.containsKey(universityName) ? universities.get(universityName) + 1 : 1);
+            } catch (Exception ignored) {}
+
+            try {
+                String educationForm = info.getString("education_form");
+                forms.put(educationForm, forms.containsKey(educationForm) ? forms.get(educationForm) + 1 : 1);
             } catch (Exception ignored) {}
         }
 
